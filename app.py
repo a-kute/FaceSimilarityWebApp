@@ -43,7 +43,7 @@ def perform_predictions(uno,dos):
         for y, face_score_2 in enumerate(model_scores_dos):
             score = cosine(face_score_1, face_score_2)
 
-            if score <= .8:
+            if score <= .4:
                 # Printing the IDs of faces and score
                 print(x, y, score)
                 # Displaying each matched pair of faces

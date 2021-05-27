@@ -19,7 +19,7 @@ def draw_box(image_path, faces, number):
 
     for face in faces:
         x, y, w, h = face['box']
-        cv2.rectangle(img1, (x, y), (x + w, y + h), (255, 0, 0), 1)
+        cv2.rectangle(img1, (x, y), (x + w, y + h), (0, 0, 255), 2)
 
 
 
@@ -76,12 +76,17 @@ def prep_image(image_path, required_size = (224,224)):
         x2,y2 = x1+w1,y1+h1
 
 
-        if x2>uno:
-            continue
-        if y2>dos:
-            continue
+        if x2>dos:
+           x2=dos
+        if y2>uno:
+            y2=uno
         if x1<0:
-            continue
+            x1=0
+
+        print(x1)
+        print(x2)
+        print(y1)
+        print(y2)
 
         face_boundary = image[y1:y2,x1:x2]
         face_image = Image.fromarray(face_boundary)
